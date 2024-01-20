@@ -7,18 +7,20 @@ function copyDir() {
         if (error) {
             console.log(error);
         }
-    });
-    fs.readdir(sourseFolderPath, (error, files) => {
-        if (error) {
-            console.log(error);
-        }
         else {
-            files.forEach((file) => {
-                fs.copyFile(path.join(sourseFolderPath, file), path.join(copyFolderPath, file), (error) => {
-                    if (error) {
-                        console.log(error);
-                    }
-                })
+            fs.readdir(sourseFolderPath, (error, files) => {
+                if (error) {
+                    console.log(error);
+                }
+                else {
+                    files.forEach((file) => {
+                        fs.copyFile(path.join(sourseFolderPath, file), path.join(copyFolderPath, file), (error) => {
+                            if (error) {
+                                console.log(error);
+                            }
+                        });
+                    });
+                }
             });
         }
     });
